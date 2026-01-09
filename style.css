@@ -1,9 +1,9 @@
 :root { /* root variables */
     --px: 16px;
-    --offWhite: hsl(0 0% 80%);
+    --white: hsl(0 0% 95%);
     --white50: hsl(0 100% 100% / 60%);
-    --grey: hsl(0 0% 25%);
-    --dark: hsl(0 0% 15%);
+    --gray: hsl(0 0% 35%);
+    --dark: hsl(0 0% 5%);
     --grm: hsl(88 100% 50%);
     --sky: hsl(202 100% 60%);
     --prl: hsl(322 100% 65%);
@@ -17,8 +17,9 @@
     outline: 0;
     user-select: none;
     text-decoration: none;
+    font-family: Sentient-Variable;
     font-size: 12pt;
-    font-weight: 300;
+    font-weight: 350;
     line-height: 1.5em;
     color: var(--dark);
     vertical-align: baseline;
@@ -27,9 +28,121 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 1200px) {
+@font-face {
+    font-family: 'Poppins-Variable';
+    src: url('./Poppins-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sentient-Variable';
+    src: url('./Sentient-Variable.ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aktura-Regular';
+    src: url('./Aktura-Regular.ttf') format('truetype');
+    font-display: swap;
+    font-style: normal;
+}
+
+body {
+    background: var(--white);
+}
+
+h1 {
+    display: none;
+}
+
+i {
+    font-family: Poppins-Variable;
+    color: var(--gray);
+    font-style: normal;
+}
+
+hr {
+    width: 100%;
+    border-top: 1px solid var(--gray);
+    margin-top: var(--px);
+    margin-bottom: var(--px);
+}
+
+body {
+    padding: var(--px);
+}
+
+body > * {
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h2 {
+    font-family: Aktura-Regular;
+    font-size: 36pt;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.articleSect {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: calc(var(--px)/2);
+}
+
+.articleSect ul {
+    grid-column: span 5;
+    display: flex;
+    flex-direction: column;
+    gap: var(--px);
+}
+
+.articleSect > .aImg {
+    grid-column: span 7;
+}
+
+.aImg img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.article * {
+    color: var(--gray);
+}
+
+.article h3 {
+    color: var(--dark);
+    font-size: 16pt;
+    line-height: 1.2em;
+    font-weight: 550;
 }
 
 /*mobile*/
 @media (max-width: 800px) {
+    .articleSect {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .articleSect ul, .articleSect > aImg {
+        grid-column: 1;
+    }
 }
