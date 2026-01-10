@@ -1,12 +1,12 @@
 :root { /* root variables */
     --px: 16px;
-    --white: hsl(0 0% 95%);
+    --white: hsl(0 0% 100%);
     --white50: hsl(0 100% 100% / 60%);
     --gray: hsl(0 0% 35%);
     --dark: hsl(0 0% 5%);
     --grm: hsl(88 100% 50%);
     --sky: hsl(202 100% 60%);
-    --prl: hsl(322 100% 65%);
+    --red: hsl(356 100% 65%);
 }
 
 /* remove default styles */
@@ -59,10 +59,18 @@ h1 {
     display: none;
 }
 
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
 i {
     font-family: Poppins-Variable;
     color: var(--gray);
     font-style: normal;
+}
+
+.logo {
+    font-family: Aktura-Regular;
 }
 
 hr {
@@ -88,7 +96,6 @@ header {
 }
 
 header h2 {
-    font-family: Aktura-Regular;
     font-size: 36pt;
 }
 
@@ -103,10 +110,10 @@ header div {
 .articleSect {
     display: grid;
     grid-template-columns: repeat(12,1fr);
-    gap: calc(var(--px)/2);
+    gap: var(--px);
 }
 
-.articleSect ul {
+.articleSect > ul {
     grid-column: span 5;
     display: flex;
     flex-direction: column;
@@ -135,14 +142,86 @@ header div {
     font-weight: 550;
 }
 
+.article i, .article strong {
+    font-size: 10pt;
+}
+
+.article strong {
+    font-weight: 500;
+    color: var(--red);
+}
+
+.article li {
+    margin-left: 1em;
+}
+
+.article li::before {
+    content: '\2022';
+    color: var(--red);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+footer h2 {
+    font-size: 24pt;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--px)*2);
+    margin: calc(var(--px)*2);
+    margin-top: calc(var(--px)*8);
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+footer nav {
+    display: flex;
+    gap: calc(var(--px)/2);
+}
+
 /*mobile*/
 @media (max-width: 800px) {
+    * {
+        font-size: 10pt;
+    }
+
+    header h2 {
+        font-size: 32pt;
+    }
+
+    .article h3 {
+        font-size: 12pt;
+    }
+
+    .article i, .article strong {
+        font-size: 8pt;
+    }
+
+    body {
+        padding: calc(var(--px)/2);
+    }
+
     .articleSect {
         grid-template-columns: 1fr;
         gap: 0;
+        grid-row-gap: var(--px);
     }
 
     .articleSect ul, .articleSect > aImg {
         grid-column: 1;
+    }
+
+    footer h2 {
+        font-size: 18pt;
+    }
+
+    footer nav {
+        display: none;
     }
 }
