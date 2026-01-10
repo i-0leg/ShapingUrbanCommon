@@ -217,8 +217,9 @@ footer nav {
         grid-column: 1;
     }
 
-    footer h2 {
-        font-size: 18pt;
+    footer {
+        margin-top: var(--px);
+        gap: var(--px);
     }
 
     footer nav {
